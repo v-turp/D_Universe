@@ -11,7 +11,7 @@
  * or implied. See the License for the specific language governing permissions and limitations under
  * the License.
  */
-package com.universe.d.d_universe;
+package com.universe.d.tv;
 
 import android.app.Activity;
 import android.app.Fragment;
@@ -41,7 +41,7 @@ public class BrowseErrorActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_universal);
+        setContentView(R.layout.activity_main);
 
         testError();
     }

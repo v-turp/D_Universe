@@ -12,7 +12,7 @@
  * the License.
  */
 
-package com.universe.d.d_universe;
+package com.universe.d.tv;
 
 import android.graphics.drawable.Drawable;
 import android.support.v17.leanback.widget.ImageCardView;

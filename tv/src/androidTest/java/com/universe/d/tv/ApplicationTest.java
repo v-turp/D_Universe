@@ -1,4 +1,4 @@
-package com.universe.d.d_universe;
+package com.universe.d.tv;
 
 import android.app.Application;
 import android.test.ApplicationTestCase;

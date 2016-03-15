@@ -12,7 +12,7 @@
  * the License.
  */
 
-package com.universe.d.d_universe;
+package com.universe.d.tv;
 
 import android.app.Activity;
 import android.os.Bundle;
@@ -20,7 +20,7 @@ import android.os.Bundle;
 /*
  * MainActivity class that loads MainFragment
  */
-public class UniversalActivity extends Activity {
+public class MainActivity extends Activity {
     /**
      * Called when the activity is first created.
      */
@@ -28,6 +28,6 @@ public class UniversalActivity extends Activity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_universal);
+        setContentView(R.layout.activity_main);
     }
 }

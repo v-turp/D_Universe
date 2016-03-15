@@ -12,7 +12,7 @@
  * the License.
  */
 
-package com.universe.d.d_universe;
+package com.universe.d.tv;
 
 import android.content.Intent;
 import android.graphics.drawable.Drawable;
