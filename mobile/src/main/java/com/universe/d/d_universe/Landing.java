@@ -35,16 +35,15 @@ public class Landing extends AppCompatActivity {
             getWindow().setExitTransition(new Explode());
         }
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-        fab.setOnClickListener(new View.OnClickListener() {
+        // set the timing for the page to be displayed
+        new View(this).postDelayed(new Runnable() {
+
             @Override
-            public void onClick(View view) {
+            public void run() {
                 Intent intent = new Intent(getBaseContext(), UniversalActivity.class);
                 startActivity(intent);
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
             }
-        });
+        }, 5000);
     }
 
 }
