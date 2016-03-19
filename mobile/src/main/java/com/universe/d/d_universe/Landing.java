@@ -3,6 +3,7 @@ package com.universe.d.d_universe;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v7.app.AppCompatActivity;
 import android.transition.Explode;
 import android.view.View;
@@ -27,17 +28,28 @@ public class Landing extends AppCompatActivity {
             getWindow().setExitTransition(new Explode());
         }
 
-        /**
-         * this enables fullscreen for version 4.1+
-         * set view hidden step 1
-         * */
-        View decorView = getWindow().getDecorView();
-        // Hide the status bar.
-        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
-        decorView.setSystemUiVisibility(uiOptions);
-        // --- end fullscreen impl 4.1+
+        showFullScreen();
+        addScreenTransitionDelay(5000);
+    } // end method onCreate
 
+    @Override
+    protected void onResume() {
+        super.onResume();
+        showFullScreen();
+        addScreenTransitionDelay(5000);
+
+    }
+
+    @Override
+    protected void onStart() {
+        super.onStart();
+    }
+
+    private void addScreenTransitionDelay(@Nullable int timeDelay){
         // set the timing for the page to be displayed
+        if(timeDelay < 0){
+            timeDelay = 3000;
+        }
         new View(this).postDelayed(new Runnable() {
 
             @Override
@@ -45,7 +57,15 @@ public class Landing extends AppCompatActivity {
                 Intent intent = new Intent(getBaseContext(), UniversalActivity.class);
                 startActivity(intent);
             }
-        }, 5000);
+        }, timeDelay);
     }
-
+    private void showFullScreen(){
+        /**
+         * this enables fullscreen for version 4.1+
+         * */
+        View decorView = getWindow().getDecorView();
+        // Hide the status bar.
+        int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
+        decorView.setSystemUiVisibility(uiOptions);
+    }
 }
