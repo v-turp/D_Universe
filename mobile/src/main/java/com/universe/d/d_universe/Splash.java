@@ -1,6 +1,5 @@
 package com.universe.d.d_universe;
 
-import android.animation.Animator;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -12,7 +11,7 @@ import android.view.Window;
 
 import butterknife.ButterKnife;
 
-public class Landing extends AppCompatActivity {
+public class Splash extends AppCompatActivity {
 
 
     @Override
@@ -20,7 +19,7 @@ public class Landing extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //-- set window transitions
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
-        setContentView(R.layout.activity_landing);
+        setContentView(R.layout.splash);
         ButterKnife.bind(this);
 
         // check the build version before applying the transition
@@ -30,14 +29,14 @@ public class Landing extends AppCompatActivity {
         }
 
         showFullScreen();
-        addScreenTransitionDelay(5000);
+        addScreenTransitionDelay(3000);
     } // end method onCreate
 
     @Override
     protected void onResume() {
         super.onResume();
         showFullScreen();
-        addScreenTransitionDelay(5000);
+        addScreenTransitionDelay(3000);
 
     }
 
