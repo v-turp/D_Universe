@@ -26,6 +26,7 @@ public class UniversalActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         //-- set window transitions
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
+        setIncomingTransition();
         setContentView(R.layout.activity_universal);
         ButterKnife.bind(this);
         setSupportActionBar(toolbar);
@@ -65,5 +66,9 @@ public class UniversalActivity extends AppCompatActivity {
         }
 
         return super.onOptionsItemSelected(item);
+    }
+
+    void setIncomingTransition(){
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 }

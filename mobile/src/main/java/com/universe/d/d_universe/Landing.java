@@ -1,5 +1,6 @@
 package com.universe.d.d_universe;
 
+import android.animation.Animator;
 import android.content.Intent;
 import android.os.Build;
 import android.os.Bundle;
@@ -56,6 +57,7 @@ public class Landing extends AppCompatActivity {
             public void run() {
                 Intent intent = new Intent(getBaseContext(), UniversalActivity.class);
                 startActivity(intent);
+                setActivityExitTransition();
             }
         }, timeDelay);
     }
@@ -67,5 +69,9 @@ public class Landing extends AppCompatActivity {
         // Hide the status bar.
         int uiOptions = View.SYSTEM_UI_FLAG_FULLSCREEN;
         decorView.setSystemUiVisibility(uiOptions);
+    }
+
+    private void setActivityExitTransition(){
+        overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
 }
