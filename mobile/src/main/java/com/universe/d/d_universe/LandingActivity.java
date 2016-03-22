@@ -5,20 +5,18 @@ import android.os.Build;
 import android.os.Bundle;
 import android.support.design.widget.FloatingActionButton;
 import android.support.v7.app.AppCompatActivity;
-import android.support.v7.widget.Toolbar;
 import android.transition.Explode;
-import android.view.View;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.view.View;
 import android.view.Window;
 
-import butterknife.Bind;
 import butterknife.ButterKnife;
 
-public class UniversalActivity extends AppCompatActivity {
+public class LandingActivity extends AppCompatActivity {
 
-    @Bind(R.id.fab) FloatingActionButton fab;
-    @Bind(R.id.toolbar) Toolbar toolbar;
+//    @Bind(R.id.fab) FloatingActionButton fab;
+    FloatingActionButton iv;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,9 +24,8 @@ public class UniversalActivity extends AppCompatActivity {
         //-- set window transitions
         getWindow().requestFeature(Window.FEATURE_CONTENT_TRANSITIONS);
         setIncomingTransition();
-        setContentView(R.layout.activity_universal);
+        setContentView(R.layout.activity_landing);
         ButterKnife.bind(this);
-        setSupportActionBar(toolbar);
 
         // check the build version before applying the transition
         if(Build.VERSION.SDK_INT == Build.VERSION_CODES.LOLLIPOP){
@@ -36,13 +33,13 @@ public class UniversalActivity extends AppCompatActivity {
             getWindow().setExitTransition(new Explode());
         }
 
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Intent intent = new Intent(getBaseContext(), Splash.class);
-                startActivity(intent);
-            }
-        });
+        setFloatingActionButtonConfig(iv);
+
+        /**
+         * NOTE: Fragment Transactions...
+        *If your activity allows the fragments to be removed and replaced,
+        *you should add the initial fragment(s) to the activity during the activity's onCreate() method.
+        */
     }
 
     @Override
@@ -70,4 +67,22 @@ public class UniversalActivity extends AppCompatActivity {
     void setIncomingTransition(){
         overridePendingTransition(android.R.anim.fade_in, android.R.anim.fade_out);
     }
+
+    private void setFloatingActionButtonConfig( FloatingActionButton fab){
+       if(fab != null) {
+           if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.LOLLIPOP) {
+               fab = (FloatingActionButton) findViewById(R.id.fab);
+
+               fab.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View view) {
+                       Intent intent = new Intent(getBaseContext(), Splash.class);
+                       startActivity(intent);
+                   }
+               });
+
+           }
+
+       }
+    } // end method setFloatingActionButtonConfig
 }
