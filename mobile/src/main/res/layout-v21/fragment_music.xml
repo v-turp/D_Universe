@@ -4,9 +4,11 @@
     android:layout_height="match_parent"
     tools:context="com.universe.d.d_universe.MusicFrag">
 
-    <VideoView
-        android:id="@+id/vvVideo"
+    <ImageView
+        android:id="@+id/ivVideo"
         android:layout_width="match_parent"
-        android:layout_height="match_parent" />
+        android:layout_height="match_parent"
+        android:src="@drawable/music"
+        android:contentDescription="@string/music_content_description"/>
 
 </FrameLayout>

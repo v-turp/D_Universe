@@ -28,7 +28,6 @@ import butterknife.ButterKnife;
 public class LandingActivity extends AppCompatActivity {
 
     @Bind(R.id.fab) FloatingActionButton fab;
-    @Bind(R.id.ivCircularReveal) ImageView ivCircularReveal;
 //    FloatingActionButton iv;
 
 
@@ -50,17 +49,23 @@ public class LandingActivity extends AppCompatActivity {
         }
 
         setFloatingActionButtonConfig();
-        addCircularRevealAnimation(ivCircularReveal);
+        addCircularRevealAnimation(null);
 
         /**
          * NOTE: Fragment Transactions...
         *If your activity allows the fragments to be removed and replaced,
         *you should add the initial fragment(s) to the activity during the activity's onCreate() method.
         */
+        //--- fragment transctions --//
         FragmentManager fm = getFragmentManager();
         FragmentTransaction ft = fm.beginTransaction();
         GearFrag gearFrag = new GearFrag();
-        ft.add(R.id.flGearFragmentContainer, gearFrag).commit();
+        MusicFrag musicFrag = new MusicFrag();
+        GalleryFrag galleryFrag = new GalleryFrag();
+        ft.add(R.id.flGearFragmentContainer, gearFrag);
+        ft.add(R.id.flMusicFragmentContainer, musicFrag);
+        ft.add(R.id.flGalleryFragmentContainer, galleryFrag);
+        ft.commit();
 
     }
 
