@@ -12,7 +12,11 @@
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:background="@color/wallet_link_text_light"
-        android:src="@drawable/stunt"/>
+        android:src="@drawable/u_can_get_it"
+        android:foregroundGravity="center_vertical"
+        android:scaleType="fitXY"
+        android:adjustViewBounds="true"/>
+    <!-- adjustViewBounds maintains aspect ratio if set to true. this accommodates fitXY not respecting aspect ration-->
 
     <android.support.design.widget.FloatingActionButton
         android:id="@+id/fab"
